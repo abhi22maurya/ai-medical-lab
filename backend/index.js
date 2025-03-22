@@ -17,7 +17,7 @@ import healthRoute from "./Routes/healthPredict.js";
 dotenv.config();
 
 const app = express();
-const port = process.env.PORT || 8000;
+const port = process.env.PORT || 5001;
 
 const corsOptions = {
   origin: true,
@@ -31,9 +31,9 @@ app.get("/", (req, res) => {
 mongoose.set("strictQuery", false);
 const connectDB = async () => {
   try {
-    await mongoose.connect(process.env.MONGO_URL, {
-      //   useNewUrlParser: true,
-      //   useUnifiedTopology: true,
+    await mongoose.connect(process.env.MONGO_URI, {
+       useNewUrlParser: true,
+        useUnifiedTopology: true,
     });
     console.log("Mongoose connected");
   } catch (error) {
