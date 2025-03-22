@@ -1,6 +1,4 @@
-Here’s a more polished and concise version of your project description:
 
----
 
 # AI-based Medical Laboratory  
 *March 18, 2025*  
