@@ -61,9 +61,9 @@ export const register = async (req, res) => {
       .status(200)
       .json({ success: true, message: "User Successfully created" });
   } catch (error) {
-    res
-      .status(500)
-      .json({ success: false, message: "Internal server error, Try again" });
+    console.error("🔥 Login Error:", error); // Show detailed error
+    res.status(500).json({ status: false, message: error.message });
+
   }
 };
 
@@ -76,6 +76,7 @@ export const login = async (req, res) => {
     const patient = await User.findOne({ email });
     const doctor = await Doctor.findOne({ email });
     const admin = await User.findOne({ email, role: "admin" }); // Add admin check
+    console.log("User found:", user);
 
     if (patient) {
       user = patient;
@@ -113,7 +114,7 @@ export const login = async (req, res) => {
       role,
     });
   } catch (error) {
-    console.error(error);
-    res.status(500).json({ status: false, message: "Failed to login" });
+    console.error("🔥 Login Error:", error); // Show detailed error
+    res.status(500).json({ status: false, message: error.message });
   }
 };
