@@ -62,7 +62,8 @@ The AI-based Medical Laboratory project seeks to revolutionize laboratory medici
    Create a `.env` file in the `backend` directory with:  
    ```text  
    MONGO_URI=your_mongodb_uri  
-   PORT=5000  
+   PORT=5000
+   JWT_SECRET_KEY=your_jwt_key
    ```  
 
 5. Run the backend server:  
